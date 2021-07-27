@@ -1,10 +1,11 @@
 module ArtistsHelper
-    def display_artist(artist)
-        @artist = Artist.where(name: "#{artist}")
-        if @artist
-        redner :show 
+    def display_artist(song)
+    
+        if song.artist
+            link_to song.artist.name, artist_path(song.artist)
         else
-        render :edit
+          
+            link_to "Add Artist", edit_song_path(song)
         end
     end
 end
